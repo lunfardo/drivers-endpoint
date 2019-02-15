@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  api-service:
+    build: './api'
+  
+  drivers-service:
+    build: './drivers'
+
+  db-service:
+    build: ./db
+    user: postgres
+    volumes:
+      - ./db/init_scripts:/docker-entrypoint-initdb.d
